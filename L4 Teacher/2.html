@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="countInput" oninput="countChars()">
+    <p id="charCount">Кількість символів: 0</p>
+
+    <script>
+        function countChars() {
+            const length = document.getElementById("countInput").value.length;
+            document.getElementById("charCount").innerHTML = "Кількість символів: " + length;
+        }
+    </script>
+
+
+
+</body>
+
+</html>

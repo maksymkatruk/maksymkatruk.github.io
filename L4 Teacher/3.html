@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="resizeText">Цей текст буде змінювати розмір</p>
+    <button onclick="changeSize(2)">Збільшити</button>
+    <button onclick="changeSize(-2)">Зменшити</button>
+
+    <script>
+        let size = 16;
+
+        function changeSize(delta) {
+            size += delta;
+            document.getElementById("resizeText").style.fontSize = size + "px";
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
