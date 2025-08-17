@@ -1,0 +1,17 @@
+:root {
+    --main-color: #6cf06d;
+}
+
+
+.container {
+    max-width: 900px;
+    margin:0 auto;
+}
+header{
+    .container{
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+}
