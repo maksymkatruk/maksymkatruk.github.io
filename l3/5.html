@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 5</title>
+</head>
+<body>
+  <button onclick="countClicks()">Клікни мене</button>
+  <p id="counter">Кліків: 0</p>
+
+  <script>
+    let clicks = 0;
+    function countClicks() {
+      clicks++;
+      document.getElementById("counter").innerText = "Кліків: " + clicks;
+    }
+  </script>
+</body>
+</html>

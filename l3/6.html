@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 6</title>
+</head>
+<body>
+  <button onclick="toggleColor()">Перемкнути фон</button>
+
+  <script>
+    let isWhite = true;
+    function toggleColor() {
+      if (isWhite) {
+        document.body.style.backgroundColor = "lightgray";
+      } else {
+        document.body.style.backgroundColor = "white";
+      }
+      isWhite = !isWhite;
+    }
+  </script>
+</body>
+</html>

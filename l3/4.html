@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 4</title>
+</head>
+<body>
+  <input type="text" id="nameInput" placeholder="Введіть ім’я">
+  <button onclick="showName()">Привітати</button>
+  <p id="greeting"></p>
+
+  <script>
+    function showName() {
+      let name = document.getElementById("nameInput").value;
+      document.getElementById("greeting").innerText = "Привіт, " + name;
+    }
+  </script>
+</body>
+</html>

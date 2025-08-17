@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 9</title>
+</head>
+<body>
+  <p id="text">Цей текст можна сховати</p>
+  <button onclick="toggleText()">Показати/сховати</button>
+
+  <script>
+    function toggleText() {
+      let p = document.getElementById("text");
+      if (p.style.display === "none") {
+        p.style.display = "block";
+      } else {
+        p.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

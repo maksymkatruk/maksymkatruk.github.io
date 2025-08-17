@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 8</title>
+</head>
+<body>
+  <input type="number" id="num" placeholder="Введіть число">
+  <button onclick="checkEven()">Перевірити</button>
+  <p id="result"></p>
+
+  <script>
+    function checkEven() {
+      let num = Number(document.getElementById("num").value);
+      let result = (num % 2 === 0) ? "Парне" : "Непарне";
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>

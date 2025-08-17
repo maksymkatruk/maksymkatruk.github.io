@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 10</title>
+</head>
+<body>
+  <select id="colorSelect">
+    <option value="white">Білий</option>
+    <option value="red">Червоний</option>
+    <option value="green">Зелений</option>
+    <option value="blue">Синій</option>
+    <option value="yellow">Жовтий</option>
+  </select>
+  <button onclick="changeColor()">Змінити фон</button>
+
+  <script>
+    function changeColor() {
+      let color = document.getElementById("colorSelect").value;
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>
