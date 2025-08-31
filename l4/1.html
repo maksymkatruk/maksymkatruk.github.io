@@ -1,0 +1,35 @@
+<!-- Секретне повідомлення
+
+Поле пароля та кнопка. Якщо введено "1234" — показати секрет. Інакше — написати "Неправильний пароль". -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="пароль" id = "passInput"> 
+    <button onclick="checkpassword()">Перевірити</button>
+    <p id="passResult"> </p>
+    <script>
+        function checkpassword() {
+            const password = (document.getElementById("passInput").value);
+            const result = document.getElementById("passResult");
+            if (password == "1234") {
+                result.textContent = "Пароль правильний"
+            }
+            else {
+                result.textContent = "Пароль неправильний"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

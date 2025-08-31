@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>5</title>
+</head>
+<body>
+  <h3>Поточний час</h3>
+  <button onclick="showTime()">Показати час</button>
+  <p id="timeResult"></p>
+
+  <script>
+    function showTime() {
+      const now = new Date();
+      const time = now.toLocaleTimeString("uk-UA");
+      document.getElementById("timeResult").textContent = time;
+    }
+  </script>
+</body>
+</html>

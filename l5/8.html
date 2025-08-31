@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>8</title>
+</head>
+<body>
+  <h3>Калькулятор</h3>
+  <input type="number" id="num1" placeholder="Число 1">
+  <select id="operation">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" id="num2" placeholder="Число 2">
+  <button onclick="calculate()">Обчислити</button>
+  <p id="calcResult"></p>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const op = document.getElementById("operation").value;
+      const result = document.getElementById("calcResult");
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result.textContent = "Введіть обидва числа";
+        return;
+      }
+
+      let res;
+      switch (op) {
+        case "+": res = num1 + num2; break;
+        case "-": res = num1 - num2; break;
+        case "*": res = num1 * num2; break;
+        case "/": res = num2 !== 0 ? num1 / num2 : "Ділення на нуль!"; break;
+      }
+      result.textContent = "Результат: " + res;
+    }
+  </script>
+</body>
+</html>

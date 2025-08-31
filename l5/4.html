@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>4</title>
+</head>
+<body>
+  <h3>Перевірка віку</h3>
+  <input type="number" id="ageInput" placeholder="Введіть вік">
+  <button onclick="checkAge()">Перевірити</button>
+  <p id="ageResult"></p>
+
+  <script>
+    function checkAge() {
+      const age = parseInt(document.getElementById("ageInput").value);
+      const result = document.getElementById("ageResult");
+      if (isNaN(age)) {
+        result.textContent = "Введіть число!";
+      } else if (age < 18) {
+        result.textContent = "❌ Недостатньо років";
+      } else {
+        result.textContent = "✅ Вітаємо!";
+      }
+    }
+  </script>
+</body>
+</html>

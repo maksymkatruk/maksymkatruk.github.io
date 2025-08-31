@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>1</title>
+</head>
+<body>
+  <h3>Перевірка імені</h3>
+  <input type="text" id="nameInput" placeholder="Введіть ім’я">
+  <button onclick="checkName()">Перевірити</button>
+  <p id="nameResult"></p>
+
+  <script>
+    function checkName() {
+      const name = document.getElementById("nameInput").value.trim();
+      const result = document.getElementById("nameResult");
+      result.textContent = name ? `Привіт, ${name}` : "Введіть ім’я!";
+    }
+  </script>
+</body>
+</html>

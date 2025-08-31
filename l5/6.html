@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>6</title>
+</head>
+<body>
+  <h3>Збереження імені</h3>
+  <input type="text" id="saveNameInput" placeholder="Введіть ім’я">
+  <button onclick="saveName()">Зберегти</button>
+  <p id="savedName"></p>
+
+  <script>
+    function saveName() {
+      const name = document.getElementById("saveNameInput").value.trim();
+      if (name) {
+        localStorage.setItem("username", name);
+        document.getElementById("savedName").textContent = "Збережене ім’я: " + name;
+      }
+    }
+    window.onload = function() {
+      const saved = localStorage.getItem("username");
+      if (saved) {
+        document.getElementById("savedName").textContent = "Збережене ім’я: " + saved;
+      }
+    };
+  </script>
+</body>
+</html>

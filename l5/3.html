@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>3</title>
+</head>
+<body>
+  <h3>Зміна кольору тексту</h3>
+  <p id="colorText">Цей текст змінить колір</p>
+  <button onclick="changeColor()">Змінити колір</button>
+
+  <script>
+    function changeColor() {
+      const text = document.getElementById("colorText");
+      const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      text.style.color = randomColor;
+    }
+  </script>
+</body>
+</html>

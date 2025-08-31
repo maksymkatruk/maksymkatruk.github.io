@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>7</title>
+</head>
+<body>
+  <h3>Перевірка паролю</h3>
+  <input type="password" id="passwordInput" placeholder="Введіть пароль">
+  <button onclick="checkPassword()">Перевірити</button>
+  <p id="passwordResult"></p>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("passwordInput").value;
+      const result = document.getElementById("passwordResult");
+      if (pass.length < 6) {
+        result.textContent = "Пароль занадто короткий";
+      } else if (!/\d/.test(pass)) {
+        result.textContent = "Має бути хоч одна цифра";
+      } else {
+        result.textContent = "Пароль прийнято";
+      }
+    }
+  </script>
+</body>
+</html>

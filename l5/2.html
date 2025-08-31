@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>2</title>
+</head>
+<body>
+  <h3>Кількість символів</h3>
+  <input type="text" id="charInput" placeholder="Введіть текст">
+  <p id="charCount">0 символів</p>
+
+  <script>
+    document.getElementById("charInput").addEventListener("input", function() {
+      document.getElementById("charCount").textContent =
+        this.value.length + " символів";
+    });
+  </script>
+</body>
+</html>
