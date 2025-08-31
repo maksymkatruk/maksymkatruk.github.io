@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button onclick="add()">Добавити</button>
+        <br>
+        <br>
+        <div id="list"></div>
+    </div>
+    <script>
+        let foods = [];
+
+        function add() {
+            let input = document.getElementById("input");
+            foods.push(input.value);
+            console.log(foods);
+            input.value = "";
+            show_list();
+        }
+
+        function show_list(){
+            let list = document.getElementById("list");
+            list.innerHTML = "";
+            for(let food of foods){
+                list.innerHTML += `<li>${food}</li>`;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
