@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сума додатніх та від’ємних чисел</title>
+</head>
+<body>
+    <input type="number" id="input" placeholder="Введи число">
+    <button onclick="add()">Додати число</button>
+    <button onclick="calc()">Порахувати суми</button>
+    <br><br>
+
+    <div id="list"></div>
+    <p id="result"></p>
+
+    <script>
+        let numbers = [];
+
+        function add() {
+            let input = document.getElementById("input");
+            let value = input.value.trim();
+
+            if(value !== "") {
+                numbers.push(Number(value));
+                input.value = "";
+                show_list();
+            }
+        }
+
+        function show_list() {
+            document.getElementById("list").innerText = "Масив: " + numbers.join(", ");
+        }
+
+        function calc() {
+            if(numbers.length === 0){
+                document.getElementById("result").innerText = "Масив порожній!";
+                return;
+            }
+
+            let positiveSum = 0;
+            let negativeSum = 0;
+
+            for(let num of numbers){
+                if(num > 0) positiveSum += num;
+                else if(num < 0) negativeSum += num;
+            }
+
+            document.getElementById("result").innerText = 
+                `Сума додатніх чисел = ${positiveSum}, Сума від’ємних чисел = ${negativeSum}`;
+        }
+    </script>
+</body>
+</html>

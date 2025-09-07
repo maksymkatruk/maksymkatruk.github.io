@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Середнє арифметичне</title>
+</head>
+<body>
+    <input type="number" id="input" placeholder="Введи число">
+    <button onclick="add()">Додати</button>
+    <button onclick="calc()">Порахувати середнє</button>
+    <br><br>
+    
+    <div id="list"></div>
+    <p id="result"></p>
+
+    <script>
+        let numbers = [];
+
+        function add() {
+            let input = document.getElementById("input");
+            let value = input.value.trim();
+
+            if(value !== "") {
+                numbers.push(Number(value)); 
+                input.value = "";
+                show_list();
+            }
+        }
+
+        function show_list() {
+            let list = document.getElementById("list");
+            list.innerHTML = "Масив: " + numbers.join(" , ");
+        }
+
+        function calc() {
+            if(numbers.length === 0){
+                document.getElementById("result").innerText = "Масив порожній";
+                return;
+            }
+
+            let sum = numbers.reduce((a, b) => a + b, 0);
+            let avg = sum / numbers.length;
+
+            document.getElementById("result").innerText = 
+                `Сума = ${sum}, Кількість = ${numbers.length}, Середнє = ${avg}`;
+        }
+    </script>
+</body>
+</html>

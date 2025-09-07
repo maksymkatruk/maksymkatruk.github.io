@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортування слів</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Введи слово">
+    <button onclick="add()">Додати слово</button>
+    <button onclick="sortWords()">Відсортувати</button>
+    <br><br>
+
+    <div id="list"></div>
+    <p id="result"></p>
+
+    <script>
+        let words = [];
+
+        function add() {
+            let input = document.getElementById("input");
+            let value = input.value.trim();
+
+            if (value !== "") {
+                words.push(value);
+                input.value = "";
+                show_list();
+            }
+        }
+
+        function show_list() {
+            let list = document.getElementById("list");
+            list.innerHTML = "Масив слів: " + words.join(", ");
+        }
+
+        function sortWords() {
+            if (words.length === 0) {
+                document.getElementById("result").innerText = "Масив порожній!";
+                return;
+            }
+
+            let sorted = [...words].sort((a, b) => a.length - b.length);
+            document.getElementById("result").innerText = 
+                "Відсортовані слова: " + sorted.join(", ");
+        }
+    </script>
+</body>
+</html>

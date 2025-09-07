@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="input">
+        <button onclick="add()">Добавити</button>
+    </div>
+
+    <script>
+        let fruits = ["яблуко", "банан", "апельсин"];
+
+        console.log(fruits);
+        console.log(fruits[0]);
+        console.log(fruits.length);
+
+        fruits.push("виноград"); // в кінець
+        fruits.unshift("ківі"); // на початок
+
+        fruits.pop(); // з кінця
+        fruits.shift(); // з початку
+        
+        console.log(fruits);
+        fruits[0] = "груша"; // заміна елемента
+        console.log(fruits);
+
+        for (let i = 0; i < fruits.length; i++) {
+            console.log(fruits[i]);
+            
+        }
+
+        for (let fruit of fruits) {
+            console.log(fruit);
+        }
+
+//         Рядок із масиву
+
+// Є масив ["Зима", "Весна", "Літо", "Осінь"].
+// Виведи рядок "Зима, Весна, Літо, Осінь".
+
+        let seasons = ["Зима", "Весна", "Літо", "Осінь"];
+        let result = "";
+
+        for (let i = 0; i < seasons.length; i++) {
+            result += seasons[i];
+        }
+
+        console.log(result.slice(0, -1));
+
+        console.log(seasons.join(", "));
+
+
+        // includes(x) — перевіряє наявність елемента
+
+
+        // indexOf(x) — повертає індекс елемента
+
+        // join(", ") — робить рядок із масиву
+
+        // reverse() — розвертає масив
+
+        // sort() — сортує
+        
+
+    </script>
+    
+</body>
+</html>

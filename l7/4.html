@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підрахунок слів</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Введи слово">
+    <button onclick="add()">Додати слово</button>
+    <button onclick="countWords()">Порахувати входження</button>
+    <button onclick="clearArray()">Очистити масив</button>
+    <br><br>
+
+    <div id="list"></div>
+    <pre id="result"></pre>
+
+    <script>
+        let words = [];
+
+        function add() {
+            let input = document.getElementById("input");
+            let value = input.value.trim();
+
+            if(value !== "") {
+                words.push(value);
+                input.value = "";
+                show_list();
+            }
+        }
+
+        function show_list() {
+            document.getElementById("list").innerText = "Масив слів: " + words.join(", ");
+        }
+
+        function countWords() {
+            if(words.length === 0){
+                document.getElementById("result").innerText = "Масив порожній!";
+                return;
+            }
+
+            let count = {};
+
+            for(let word of words){
+                if(count[word]){
+                    count[word] += 1;
+                } else {
+                    count[word] = 1;
+                }
+            }
+
+            document.getElementById("result").innerText = JSON.stringify(count, null, 2);
+        }
+
+        function clearArray() {
+            words = [];
+            document.getElementById("list").innerText = "";
+            document.getElementById("result").innerText = "";
+        }
+    </script>
+</body>
+</html>
