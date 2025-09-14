@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .galery {
+            margin-bottom: 15px;
+        }
+
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: lightgreen;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #cartItems {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            background: #fff;
+            border: 1px solid #aaa;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            width: 220px;
+        }
+
+        #cartItems img {
+            width: 60px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="galery">
+        <button onclick="last()" id="last">назад</button>
+        <button onclick="next()" id="next">вперед</button>
+    </div>
+
+    <div id="image">
+        <img src="images/1.jpg" alt="" width="200px" onclick="toggleItem('images/1.jpg', 100)">
+    </div>
+
+    <div class="cart" onclick="add()">🛒 <span id="count">0</span></div>
+    <div id="cartItems"></div>
+
+    <script>
+        let i = 1;
+        let image = document.getElementById("image");
+
+        function next() {
+            if (i < 6) i++;
+            let name = `images/${i}.jpg`
+            image.innerHTML = `<img src="${name}" width="200px" onclick="toggleItem('${name}', 100)">`
+        }
+
+        function last() {
+            if (i > 1) i--;
+            let name = `images/${i}.jpg`
+            image.innerHTML = `<img src="${name}" width="200px" onclick="toggleItem('${name}', 100)">`
+        }
+
+        let cart = [];
+
+        function toggleItem(img, price) {
+            let found = cart.findIndex(el => el.img === img);
+            if (found === -1) {
+                cart.push({ img, price });
+            } else {
+                cart.splice(found, 1);
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById("count").innerText = cart.length;
+            let box = document.getElementById("cartItems");
+            let list = "";
+            cart.forEach(el => {
+                list += `
+          <div class="cart-item">
+            <img src="${el.img}" onclick="toggleItem('${el.img}', ${el.price})">
+            <span>${el.price} грн</span>
+          </div>
+        `;
+            });
+            box.innerHTML = list;
+        }
+
+        function add() {
+            let box = document.getElementById("cartItems");
+            box.style.display = (box.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+
+</html>

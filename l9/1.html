@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="galery">
+        <button id="last">назад</button>
+        <button class="next">вперед</button>
+    </div>
+    <div id="images">
+    </div>
+    
+    <script>
+        let images = document.getElementById("images");
+        images.innerHTML = "";
+        for (let i = 1; i <= 6; i++) {
+            name = `images/${i}.jpg`
+            images.innerHTML += `<img src = "${name}" width = "200px">`
+        }
+
+
+    </script>
+</body>
+
+</html>
