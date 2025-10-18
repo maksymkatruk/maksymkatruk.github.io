@@ -10,9 +10,13 @@
     {% include 'part/nav.html' %}
 
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for m in messages %}
-            <p style="color:green;">{{ m }}</p>
+         {% if messages %}
+            {% for mgs, category in messages %}
+                {% if category == 'error' %}
+                    <p style="color:red;">{{ mgs }} {{category}}</p>
+                {% else %}
+                    <p style="color:green;">{{ mgs }} {{category}}</p>
+                {% endif %}
             {% endfor %}
         {% endif %}
     {% endwith %}

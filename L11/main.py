@@ -28,21 +28,21 @@ def add_person():
         age = request.form.get('age')
 
         if not name and not age:
-            flash('Введіть імя та вік!')
+            flash(('Введіть імя та вік!', "error"))
             return render_template('add_person.html', title='add_person')
 
         if not name and len(name) < 2:
-            flash('Імя повинно містити мінімум 2 символи!')
+            flash(('Імя повинно містити мінімум 2 символи!', "error"))
             return render_template('add_person.html', title='add_person')
 
         if age.isdigit() == False:
-            flash('Вік повинен бути числом!')
+            flash(('Вік повинен бути числом!', "error"))
             return render_template('add_person.html', title='add_person')
         
        
 
         people[name] = int(age)
-        flash(f'Додано: {name}, вік: {age}')
+        flash((f'Додано: {name}, вік: {age}', "success"))
 
     return render_template('add_person.html', title='add_person')
 
