@@ -3,7 +3,16 @@
 
 {% block content %}
 
-Тут наш контент
+<h1>Головна сторінка</h1>
+
+
+{{people}}
+
+<ul>
+    {% for name, age in people.items() %}
+    <li>{{ name }} - {{ age }} років</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
 
