@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 
 
 app = Flask(__name__)
+app.secret_key = 'some_secret_key'
 
 people = {
     "maksym": 20,
@@ -21,14 +22,29 @@ def about():
 
 @app.route('/add_person', methods=['GET', 'POST'])
 def add_person():
-    msg = None
+    
     if request.method == 'POST':
         name = request.form.get('name')
         age = request.form.get('age')
-        people[name] = int(age)
-        msg = f'Додано: {name}, вік: {age}'
 
-    return render_template('add_person.html', title='add_person', msg=msg)
+        if not name and not age:
+            flash('Введіть імя та вік!')
+            return render_template('add_person.html', title='add_person')
+
+        if not name and len(name) < 2:
+            flash('Імя повинно містити мінімум 2 символи!')
+            return render_template('add_person.html', title='add_person')
+
+        if age.isdigit() == False:
+            flash('Вік повинен бути числом!')
+            return render_template('add_person.html', title='add_person')
+        
+       
+
+        people[name] = int(age)
+        flash(f'Додано: {name}, вік: {age}')
+
+    return render_template('add_person.html', title='add_person')
 
 if __name__ == '__main__':
     app.run(debug=True)
