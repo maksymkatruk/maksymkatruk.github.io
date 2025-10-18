@@ -1,0 +1,13 @@
+{% extends 'part/base.html' %}
+    
+
+{% block content %}
+
+Тут наш контент:
+{% for animal in animals%}
+{{animal}}
+<br>
+{% endfor %} 
+
+{% endblock %}
+
