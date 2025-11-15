@@ -1,0 +1,36 @@
+{% extends 'part/base.html' %}
+
+
+{% block content %}
+
+<h1>Продукти</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Назва</th>
+            <th scope="col">Ціна</th>
+            <th scope="col">Кількість</th>
+            <th scope="col">Додати</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for food in foods%}
+
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{food.name}}</td>
+            <td>{{food.price}}</td>
+            <td>{{food.quantity}}</td>
+            <form action="{{ url_for('cart') }}" method="post">
+          <input type="hidden" name="item" value="{{ food.name }}">
+            <td><button type="button" class="btn btn-primary">Додати у кошик</button></td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
